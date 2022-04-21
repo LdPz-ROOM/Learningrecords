@@ -1,0 +1,1 @@
+react中createRef相当于创建了一个容器，里面存储的是被ref标识的dom对象
