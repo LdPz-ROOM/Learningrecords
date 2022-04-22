@@ -9,3 +9,74 @@ node事件循环
    poll轮询 - 执行poll中的I/O队列
    check检查 - 存储setImmediate回调
    close callback - 关闭回调如socket.on(‘close’)
+   
+vdom真的很快吗？
+用js对象模拟节点数据 
+vdom并不快,js直接操作DOM才是最快的
+但“数据驱动视图”要有合适的技术方案，不能全部DOM重建
+vdom就是目前最合适的技术方案(并不是因为它快,而是合适)
+
+遍历数组,for 和foreach哪个更快
+1、for更快 forEach每次都要创建一个函数来调用，而for不会创建函数
+2、函数需要独立的作用域，会有额外的开销
+
+进程和线程
+进程，OS进行资源分配和调度的最小单位，有独立的内存空间
+线程，OS进行运算调度的最小单位，共享进程内存空间
+js是单线程的，但可以开启多进程执行，如WebWorker
+
+nodejs如何开启多进程
+1、fork
+2、cluster
+
+jsBridge实现原理
+1、注册全局API
+2、URL scheme
+
+React fiber
+组建树转换成链表，可分段渲染
+渲染时可以暂停，去执行其它高优任务，空闲时再继续渲染
+如何判断空闲？- requestIdleCallback
+
+requestIdleCallback 与 requestAnimationFrame区别
+requestAnimationFrame 每次渲染都会执行,高优 - 先执行
+requestIdleCallback 空闲时才会执行低优
+两者都是宏任务，因为都需等待dom执行完成才执行
+
+vue每个生命周期具体都干了什么？
+beforeCreate - 创建一个空白的vue实例
+created - Vue实力初始化完成，完成响应式绑定;data method都已经初始化完成，可调用；尚未开始渲染模版
+beforeMount - 编译模版，调用render生成vdom，还没有开始dom的渲染
+mounted - 完成了dom的渲染，组建创建完成
+beforeUpdate - data发生变化之后，准备更新DOM，尚未更新DOM
+updated - DOM已经更新完成（不要在updated里面修改data,可能会导致死循环）
+actived - 组件被激活
+deActived - 离开组件
+ajax请求推荐放在mounted里面，created只是理论更快，忽略不计
+
+vue3 Composition API生命周期有何区别
+用setup代替了beforeCreate 和 created
+使用hooks函数的形式，如mounted改为onMounted()
+
+vue2 vue3 React三者diff算法有何区别
+diff算法很早就有
+diff算法应用很广泛，例如github的Pull Request 中的代码diff
+如果严格的比较两颗树时间复杂度是O(n^3)
+
+Tree Diff优化
+只比较同一层级,不跨级比较
+tag不同则删除重建（不再比较内部细节）
+字节点通过key区分
+React中diff仅右移
+vue2是双端相互比较，四个指针相互比较，两端往中间移动
+vue3最长递增子序列比较
+
+vue React 为何必须使用key
+vdom diff算法会根据俄key判断元素是否需要删除
+匹配了key，则只移动元素-性能较好
+未匹配key，则直接删除重建
+
+vue-router MemoryHistory (abstract)
+
+
+
