@@ -77,6 +77,6 @@ vdom diff算法会根据俄key判断元素是否需要删除
 未匹配key，则直接删除重建
 
 vue-router MemoryHistory (abstract)
-
+AbstractHistory 用在非浏览器环境（node），HashHistory 和 HTML5History 用在浏览器环境。
 
 
