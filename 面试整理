@@ -1,0 +1,11 @@
+node事件循环
+1、和浏览器的事件循环基本相同，都是先去执行同步任务、微任务、宏任务
+2、nodejs宏任务和微任务是分类型，有优先级
+3、执行同步代码-执行微任务（process.nextTick优先级更高，微任务包括promise async/await process.nextTick）-按照顺序执行6个类型的宏任务
+4、宏任务分为以下按照优先级排序
+   Timers - setTimeout setInterval
+   I/O callbacks - 处理网络、流、tcp的错误回调
+   Idle,prepare - 闲置状态（nodejs内部使用)
+   poll轮询 - 执行poll中的I/O队列
+   check检查 - 存储setImmediate回调
+   close callback - 关闭回调如socket.on(‘close’)
