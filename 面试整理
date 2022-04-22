@@ -79,4 +79,8 @@ vdom diff算法会根据俄key判断元素是否需要删除
 vue-router MemoryHistory (abstract)
 AbstractHistory 用在非浏览器环境（node），HashHistory 和 HTML5History 用在浏览器环境。
 
-
+移动端H5300ms延迟
+fastclick原理：监听touchend事件（touchstart touchend会先于click触发）
+使用自定义DOM事件模拟了click事件
+把默认的click事件（300ms触发)禁止掉
+meta标签中有width=device-width不会存在这个问题了。(width=device-width代表在移动端做响应式,就没必要做300ms延迟了)
