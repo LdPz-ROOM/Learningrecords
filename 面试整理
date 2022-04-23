@@ -156,3 +156,8 @@ CSRF 跨站请求伪造
 预防：严格控制跨域请求 服务端严格控制请求的refer来源，验证码 为cookie设置sameSite。禁止跨域传递cookie（禁止第三方使用cookie）
 sql注入：注入sql查询语句，破坏数据库
 预防：替换特殊字符
+
+websocket协议
+支持端对端通讯
+可以由client发起，也可以由server发起
+用于：消息通知，直播间讨论区，聊天室，协同编辑
