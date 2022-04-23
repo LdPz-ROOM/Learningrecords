@@ -139,3 +139,20 @@ http1.0 1.1 2.0区别
 什么是https中间人攻击，如何预防
 https加密传输:http是明文传输 https加密传输 http + TLS/SSL（对称加密 和 非对称加密的结合）
 中间人攻击就是用一些假的证书劫持用户信息
+
+script defer async 有什么区别
+defer 并行下载js，html完成解析在执行js
+aysnc 并行下载js，立即执行，在解析html
+
+prefetch 和 dns-prefetch有什么区别
+preload资源在当前页面使用,会优先加载 在link标签使用
+prefetch资源在未来页面使用，空闲时加载 在link标签使用
+dns-prefetch 即dns查询 在link标签使用
+
+你知道哪些前端攻击？如何预防
+xss 跨站脚本攻击 将恶意代码插入到网页内容中并执行 
+预防：前端后端进行特殊字符的替换 vue里面默认不会存在XSS攻击，除非使用v-HTML
+CSRF 跨站请求伪造
+预防：严格控制跨域请求 服务端严格控制请求的refer来源，验证码 为cookie设置sameSite。禁止跨域传递cookie（禁止第三方使用cookie）
+sql注入：注入sql查询语句，破坏数据库
+预防：替换特殊字符
