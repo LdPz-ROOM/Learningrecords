@@ -161,3 +161,4 @@ websocket协议
 支持端对端通讯
 可以由client发起，也可以由server发起
 用于：消息通知，直播间讨论区，聊天室，协同编辑
+没有跨域限制，协议是ws://可双端发起请求 通过send和onmessage通讯(http通过req 和 res通讯)
