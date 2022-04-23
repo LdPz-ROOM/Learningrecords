@@ -136,5 +136,6 @@ http1.0 1.1 2.0区别
 1.1增加了缓存策略cache-control etag 等；支持长链接connection:keep-alive，一次TCP连接多次请求；支持断点续传，状态码是206；支持新的方法PUT Delete等
 2.0可压缩header，减少体积；多路复用，一次TCP连接中可以多个http请求并行请求
 
-
-
+什么是https中间人攻击，如何预防
+https加密传输:http是明文传输 https加密传输 http + TLS/SSL（对称加密 和 非对称加密的结合）
+中间人攻击就是用一些假的证书劫持用户信息
