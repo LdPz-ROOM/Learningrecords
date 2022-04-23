@@ -84,3 +84,32 @@ fastclick原理：监听touchend事件（touchstart touchend会先于click触发
 使用自定义DOM事件模拟了click事件
 把默认的click事件（300ms触发)禁止掉
 meta标签中有width=device-width不会存在这个问题了。(width=device-width代表在移动端做响应式,就没必要做300ms延迟了)
+
+token 和cookie区别
+http无状态，每次请求都要携带cookie，以帮助识别身份
+服务端也可以向客户端set-cookie，cookie大小4kb
+默认有跨域限制：不可以跨域共享、传递cookie
+cookie常用于本地存储后面推荐本地存储
+
+现代浏览器开始禁止第三方cookie
+和跨域限制不同，这里是：禁止网页引入第三方js设置cookie
+打击第三方小广告，保护用户隐私
+新增属性sameSite:strict/Lax/none；值可以自己选择
+
+cookie 和 session
+cookie用于登录验证，存储用户标识(如userId）
+seesion在服务端，存储用户详细信息，和cookie信息一一对应
+cookie+session是常用登录验证解决方案
+
+cookie和tokie
+cookie是http规范，而token是自定义传递
+cookie会被浏览器自动存储,token需要自己存储
+token默认没有跨域限制
+通常写入到头信息中Authorizaion
+
+JWT（json web Token）
+前端发起登录，后段验证成功后，返回一个加密的token
+前端自行存储这个token（包含用户信息，加密了）
+以后访问服务端接口，都带着这个token，作为用户信息
+
+
