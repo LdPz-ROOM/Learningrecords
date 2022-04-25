@@ -1,1 +1,20 @@
-
+let a:string = 'ts' let b:number = 2 let c:boolean = true
+let b:'male' | 'sex' (字面量形式) (|表示联合类型 “或”的意思)
+function sum(a:number,b:number):number{return a+b}
+let a:any
+let e:unknown (未知类型)
+类型断言: e as string    <string>e
+void表示空 function fn():void{} 
+never没有值 function fn2():never{throw new Error()}
+object对象类型 let a:object let a:{name:string} a={name:'xxx',age?:number};通常限制的是对象的属性 ?表示可选
+let c:{name:string,[propName:string]:any} [propName:string]表示任意类型的属性。只要求有name属性，其它属性不管
+let d:(a:numer,b:number)=>number 。表示是函数类型
+let e:string[];表示字符串数组
+let g:Array<number>;
+元祖类型，元祖就是固定长度的数组 let h:[stirng,string]; h=['a','b']
+enum枚举类型
+enum Gender{
+    male,
+    female
+}通常表示一堆可选项的组合
+let i = {name:string,gender:Gender} i = {name:'孙吾空',gender:Gender.male}
