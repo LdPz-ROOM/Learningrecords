@@ -19,3 +19,19 @@ getDerivedStateFromProps用法
 static getDerivedStateFromProps(props,state){} 必须返回一个状态对象或者null（即state任何时候都取决于props）
 
 getSnapshotBeforeUpdate用法介于render 和 componentDidUpdate之间
+
+虚拟DOM中key的作用：
+1、简单的说：key是虚拟DOM对象的标识，在更新显示时key起着极其重要的作用
+2、详细的说：当状态的数据发生变化的时候，react会根据新数据生成新的虚拟DOM
+           随后react进行新虚拟dom和旧虚拟dom的diff比较，比较规则如下:
+           a:旧虚拟DOM找到了与新虚拟DOM相同的key：
+             1、若虚拟DOM中内容没变，直接使用之前的真实DOM
+             2、若虚拟DOM中内容变了，则新生成真实的DOM，随后替换掉之前的真实DOM
+           b：旧虚拟DOM中未找到了与新虚拟DOM相同的key
+              根据数据创建新的真实dom，随后渲染到页面
+2、用index作为key可能会引发的问题
+   1、若对数据进行：逆序添加，逆序删除等破坏顺序操作；会产生没有必要的真实dom的更新，效率低
+   2、如果结构中还包含输入内的dom会产生错误的dom更新，界面有问题
+   3、如果不存在对数据逆序添加或者删除等破坏顺序的操作，仅渲染列表用index没有问题
+   
+           
